@@ -2,13 +2,19 @@ import { useState } from 'react';
 // import PropTypes from 'prop-types';
 import { ImputForm, Label } from './Form.styled';
 
-export function Form({ onSubmit }) {
+import { addContact } from 'redux/contactSlice';
+import { useDispatch } from 'react-redux';
+
+export function Form() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
+  // const contacts = useSelector(state => state.contacts);
+  const dispatch = useDispatch();
+
   const handleSubmit = event => {
     event.preventDefault();
-    onSubmit({ name, number });
+    dispatch(addContact({ name, number }));
     setName('');
     setNumber('');
   };
