@@ -1,15 +1,15 @@
 import { useState } from 'react';
-// import PropTypes from 'prop-types';
 import { ImputForm, Label } from './Form.styled';
 
 import { addContact } from 'redux/contactSlice';
 import { useDispatch } from 'react-redux';
 
+
 export function Form() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
-  // const contacts = useSelector(state => state.contacts);
+
   const dispatch = useDispatch();
 
   const handleSubmit = event => {
@@ -21,7 +21,6 @@ export function Form() {
 
   const handleChange = event => {
     const { name, value } = event.currentTarget;
-    //  this.setState({ [name]: value });
     switch (name) {
       case 'name':
         setName(value);
